@@ -24,16 +24,16 @@ R6. Your app is to be deployed to Heroku (recommended) or AWS.
 DOCUMENTATION:
 
 R7. Identification of the problem you are trying to solve by building this particular marketplace app.
-// A food delivery service that provides:
+// A food delivery service that:
 // supports local standalone food restaurants (no chains)
-// capped at a 10km radius in metropolitan Melbourne, to keep it local and minimise carbon footprint 
-// takes a capped $2 service fee per order, restaurants and delivery drivers receive full cost 
+// capped at a 10km radius in metropolitan Melbourne, to keep it local and to minimise the carbon footprint of delivery
+// takes a capped $2 service fee per order, restaurants and delivery drivers receive full profit - to aid local economic and business recovery post-pandemic lockdowns
 
 R8. Why is it a problem that needs solving?
 
 R9. A link (URL) to your deployed app (i.e. website)
 
-R10. GitHub repo: 
+R10. GitHub repo:   https://github.com/ejneyland/speedy_feeds_app
 
 R11. Description of your marketplace app (website), including:
     - Purpose
@@ -44,6 +44,10 @@ R11. Description of your marketplace app (website), including:
     - Tech stack (e.g. html, css, deployment platform, etc)
 
 R12. User Stories
+
+Customer:
+
+Restaurant (vendor): 
 
 R13. Wireframes
 
@@ -63,5 +67,6 @@ R17. Describe your projects models in terms of the relationships (active record 
 R18. Discuss the database relations to be implemented in your application
 
 R19. Provide your database schema design
+// Describe/explain your ERD
 
 R20. Describe the way tasks are allocated and tracked in your project
