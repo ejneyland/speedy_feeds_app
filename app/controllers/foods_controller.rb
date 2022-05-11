@@ -1,5 +1,6 @@
 class FoodsController < ApplicationController
   def index
+    @foods = Food.all
   end
 
   def show
@@ -10,4 +11,8 @@ class FoodsController < ApplicationController
 
   def new
   end
+
+  def create
+  end
+
 end
