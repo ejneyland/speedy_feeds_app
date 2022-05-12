@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
-  get 'restaurants', to: 'restaurants#index'
-  get 'foods', to: 'foods#index'
+  get 'restaurants', to: 'restaurants#show'
+  get 'restaurants/new', to: 'restaurants#new'
+  get 'foods', to: 'foods#show'
   get 'foods/new', to: 'foods#new'
 
   root "restaurants#index"

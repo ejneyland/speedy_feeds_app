@@ -1,2 +1,6 @@
-<h1>Foods#show</h1>
-<p>Find me in app/views/foods/show.html.erb</p>
+<h1 class="title is-1 is-italic">Speedy Feed's Selections!</h1>
+<h1 class="title is-3">Menu:</h1>
+<% @foods.each do |food| %>
+    <p><%= food.name %></p>
+<% end %>
+

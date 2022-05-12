@@ -1,0 +1,22 @@
+<%= form_with(model: @restaurant, data: {turbo: false}) do |f| %>
+    <fieldset class="mb-2">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    </fieldset>
+    <fieldset class="mb-2">
+    <%= f.label :cuisine %>
+    <%= f.text_field :cuisine %>
+    <%
+        # collection_select takes 4 params:
+        # 1. the arrtribute name in this model (book) to store the selected id in
+        # 2. The collection from which to build the options
+        # 3. The attribute in the collection items to use as the value of the option
+        # 4. The attribute in the collection items to use as the caption of the option
+    %>
+    <%# <%= f.collection_select :author_id, @authors, :id, :full_name %>
+    <%# <%= f.number_field :author_id %> 
+    </fieldset>
+    <fieldset class="py-2">
+        <%= f.submit class: "button is-primary is-rounded" %>
+    </fieldset>
+<% end %>

@@ -1,2 +1,8 @@
-<h1>Restaurants#show</h1>
-<p>Find me in app/views/restaurants/show.html.erb</p>
+<h3 class="title is-3">Restaurants in your area:</h3>
+<% @restaurants.each do |restaurant| %>
+    <p><%= restaurant.name_cuisine %></p>
+<% end %>
+
+<div class="py-3">
+    <%= link_to 'New Restaurant', restaurants_new_path, class: "button is-primary is-outlined is-round" %>
+</div>
