@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   devise_for :users
   get 'restaurants', to: 'restaurants#show'
   get 'restaurants/new', to: 'restaurants#new'
+  post 'restaurants', to: 'restaurants#create'
+  get 'restaurants/:id/edit', to: 'restaurants#edit', as: 'edit_restaurants'
+  patch 'restaurants/:id', to: 'restaurants#update'
   get 'foods', to: 'foods#show'
   get 'foods/new', to: 'foods#new'
 
