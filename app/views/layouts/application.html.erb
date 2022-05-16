@@ -42,12 +42,18 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-              <a class="button is-primary">
-                <strong>Sign up</strong>
+            <% if user_signed_in? %>
+              <a>
+                <%= button_to 'Logout', destroy_user_session_path, class: 'button is-link', method: :delete, form: { data: { turbo_confirm: "Are you sure you want to log out?" } } %>
               </a>
-              <a class="button is-light">
-                Log in
+            <% else %>
+              <a>
+                <%= link_to 'Sign Up', new_user_registration_path, class: "button is-primary" %>
               </a>
+              <a>
+                <%= link_to 'Login', new_user_session_path, class: "button is-secondary" %>
+              </a>
+            <% end %>
             </div>
           </div>
         </div>
