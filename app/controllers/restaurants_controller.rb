@@ -2,11 +2,14 @@ class RestaurantsController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :find_restaurant, only: [:show, :update, :destroy, :edit]
   
+  def home
+  end
+
   def index
+    @restaurants = Restaurant.all
   end
 
   def show
-    @restaurants = Restaurant.all
   end
 
   def new

@@ -5,13 +5,17 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
-  get 'restaurants', to: 'restaurants#show'
+
+  get 'restaurants', to: 'restaurants#index'
   get 'restaurants/new', to: 'restaurants#new'
-  post 'restaurants', to: 'restaurants#create'
+  get 'restaurants/:id', to: 'restaurants#show', as: 'restaurant'
   get 'restaurants/:id/edit', to: 'restaurants#edit', as: 'edit_restaurants'
+  post 'restaurants', to: 'restaurants#create'
   patch 'restaurants/:id', to: 'restaurants#update'
+  delete 'restaurants', to: 'restaurants#destroy'
+  
   get 'foods', to: 'foods#show'
   get 'foods/new', to: 'foods#new'
 
-  root "restaurants#index"
+  root "restaurants#home"
 end

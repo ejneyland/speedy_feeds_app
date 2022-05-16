@@ -1,19 +1,12 @@
-<h3 class="title is-3">Restaurants in your area:</h3>
-<% @restaurants.each do |restaurant| %>
-<% @restaurant = restaurant %>
-    <div class="py-2">
-        <p class="mr-2"><%= @restaurant.name_cuisine %></p>
-        <a>
-            <%= link_to 'Edit', edit_restaurants_path(restaurant), class: "button is-warning " %>
-        </a>
-        <a>
-            <%= link_to 'Delete', @restaurant, class: "button is-danger" %>
-        </a>
+<h1 class="title is-2"><%= @restaurant.name %></h1>
+<h1 class="subtitle is-3"><%= @restaurant.cuisine %></h1>
+
+
+<div class="field is-grouped">
+    <div class="mr-2">
+    <%= link_to 'Edit', edit_restaurants_path(@restaurant), class: "button is-warning " %>
     </div>
-<% end %>
-
-
-
-<div class="py-3">
-    <%= link_to 'New Restaurant', restaurants_new_path, class: "button is-primary is-outlined is-round" %>
+    <div class="mr-2">
+    <%= button_to 'Delete', @restaurant, class: "button is-danger", method: :delete, form: { data: { turbo_confirm: "Are you sure you want to delete '#{@restaurant.name}' Restaurant?" } } %>
+    </div>
 </div>

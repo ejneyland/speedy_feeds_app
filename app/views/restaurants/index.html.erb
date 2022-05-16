@@ -1,2 +1,11 @@
-<h1 class="title is-1 is-italic">Speedy Feeds!</h1>
+<h1 class="title is-3">Restaurants in your area:</h1>
+<% @restaurants.each do |restaurant| %>
+    <h3 class="mr-2 title is-4"><%= link_to restaurant.get_name, restaurant %></h3>
+    <h3 class="subtitle is-5"><%= restaurant.get_cuisine %></h3>
+<% end %>
 
+
+
+<div class="py-3">
+    <%= link_to 'New Restaurant', restaurants_new_path, class: "button is-primary is-outlined is-round" %>
+</div>
