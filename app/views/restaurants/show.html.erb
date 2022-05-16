@@ -1,11 +1,12 @@
 <h3 class="title is-3">Restaurants in your area:</h3>
 <% @restaurants.each do |restaurant| %>
-    <p><%= restaurant.name_cuisine %></p>
-    <div class="buttons">
-        <a class="button is-primary">
-            <%= link_to 'Edit', edit_restaurants_path, class: "button is-warning" %>
+<% @restaurant = restaurant %>
+    <div class="py-2">
+        <p class="mr-2"><%= @restaurant.name_cuisine %></p>
+        <a>
+            <%= link_to 'Edit', edit_restaurants_path(restaurant), class: "button is-warning " %>
         </a>
-        <a class="button is-primary">
+        <a>
             <%= link_to 'Delete', @restaurant, class: "button is-danger" %>
         </a>
     </div>

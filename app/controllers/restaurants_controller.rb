@@ -1,5 +1,6 @@
 class RestaurantsController < ApplicationController
   skip_before_action :verify_authenticity_token
+  before_action :find_restaurant, only: [:show, :update, :destroy, :edit]
   
   def index
   end
@@ -19,7 +20,9 @@ class RestaurantsController < ApplicationController
   end
 
   def edit
-    render 'edit'
+  end
+
+  def update
   end
 
   def destroy
@@ -29,6 +32,10 @@ class RestaurantsController < ApplicationController
   
   private
   
+  def find_restaurant
+    @restaurant = Restaurant.find(params[:id])
+  end
+
   def rest_params
     return params.require(:restaurant).permit(:name, :cuisine)
   end
