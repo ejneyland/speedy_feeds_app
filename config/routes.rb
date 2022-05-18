@@ -12,10 +12,12 @@ Rails.application.routes.draw do
   get 'restaurants/:id/edit', to: 'restaurants#edit', as: 'edit_restaurants'
   post 'restaurants', to: 'restaurants#create'
   patch 'restaurants/:id', to: 'restaurants#update'
-  delete 'restaurants', to: 'restaurants#destroy'
+  delete 'restaurants/:id', to: 'restaurants#destroy'
   
-  get 'foods', to: 'foods#show'
+  get 'foods', to: 'foods#index'
   get 'foods/new', to: 'foods#new'
-
+  get 'foods/:id', to: 'foods#show', as: 'food'
+  get 'foods/:id/edit', to: 'foods#edit', as: 'edit_foods'
+  
   root "restaurants#home"
 end

@@ -1,12 +1,21 @@
 <h1 class="title is-2"><%= @restaurant.name %></h1>
 <h1 class="subtitle is-3"><%= @restaurant.cuisine %></h1>
 
-
 <div class="field is-grouped">
-    <div class="mr-2">
+  <div class="mr-2">
     <%= link_to 'Edit', edit_restaurants_path(@restaurant), class: "button is-warning " %>
-    </div>
-    <div class="mr-2">
+  </div>
+  <div class="mr-2">
     <%= button_to 'Delete', @restaurant, class: "button is-danger", method: :delete, form: { data: { turbo_confirm: "Are you sure you want to delete '#{@restaurant.name}' Restaurant?" } } %>
-    </div>
+  </div>
 </div>
+
+<div class="my-5">
+  <h3 class="title is-3 is-italic">Menu</h3>
+  <% @foods.each do |food| %>
+  <h3 class="title is-4"><%= food.name %></h3>
+  <h3 class="subtitle is-5"><%= food.description %></h3>
+  <% end %>
+</div>
+
+

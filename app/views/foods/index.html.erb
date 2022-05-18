@@ -1,0 +1,5 @@
+<h1 class="title is-1 is-italic">Speedy Feed's Selections!</h1>
+<h1 class="title is-3">Meals:</h1>
+<% @foods.each do |food| %>
+    <p class="is-size-4"><%= link_to food.name, food %> by <%= link_to food.restaurant.get_name, food.restaurant %></p>
+<% end %>

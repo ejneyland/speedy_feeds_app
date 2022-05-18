@@ -1,6 +1,7 @@
 class RestaurantsController < ApplicationController
-  skip_before_action :verify_authenticity_token
-  before_action :find_restaurant, only: [:show, :update, :destroy, :edit]
+
+  before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :find_food, only: [:show, :edit, :update, :destroy]
   
   def home
   end
@@ -10,6 +11,10 @@ class RestaurantsController < ApplicationController
   end
 
   def show
+    @foods.each do |food|
+      @food = food
+      return "#{@food.name}"
+    end
   end
 
   def new
@@ -37,6 +42,10 @@ class RestaurantsController < ApplicationController
   
   def find_restaurant
     @restaurant = Restaurant.find(params[:id])
+  end
+
+  def find_food
+    @foods = Restaurant.find(params[:id]).foods.all
   end
 
   def rest_params
