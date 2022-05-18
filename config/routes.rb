@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   get 'foods/new', to: 'foods#new'
   get 'foods/:id', to: 'foods#show', as: 'food'
   get 'foods/:id/edit', to: 'foods#edit', as: 'edit_foods'
-  
+  post 'foods', to: 'foods#create'
+  patch 'foods/:id', to: 'foods#update'
+  delete 'foods/:id', to: 'foods#destroy'
+
   root "restaurants#home"
 end

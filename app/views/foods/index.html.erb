@@ -3,3 +3,7 @@
 <% @foods.each do |food| %>
     <p class="is-size-4"><%= link_to food.name, food %> by <%= link_to food.restaurant.get_name, food.restaurant %></p>
 <% end %>
+
+<div class="py-3">
+    <%= link_to 'Create Food Item', foods_new_path, class: "button is-primary is-outlined is-round" %>
+</div>

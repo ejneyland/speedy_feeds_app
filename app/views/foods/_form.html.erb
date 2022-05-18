@@ -1,0 +1,22 @@
+<%= form_with(model: @food, data: {turbo: false}) do |f| %>
+  <fieldset class="mb-2">
+    <%= f.label :restaurant_id %>
+    <%= f.collection_select :restaurant_id, @restaurants, :id, :name %>
+    <%= f.number_field :restaurant_id %> 
+  </fieldset>
+  <fieldset class="mb-2">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </fieldset>
+  <fieldset class="mb-2">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </fieldset>
+  <fieldset class="mb-2">
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+  </fieldset>
+  <fieldset class="py-2">
+      <%= f.submit class: "button is-primary is-rounded" %>
+  </fieldset>
+<% end %>

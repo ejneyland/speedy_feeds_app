@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-
+  skip_before_action :verify_authenticity_token
   before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
   before_action :find_food, only: [:show, :edit, :update, :destroy]
   

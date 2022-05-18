@@ -1,6 +1,7 @@
 class FoodsController < ApplicationController
-  
+  skip_before_action :verify_authenticity_token
   before_action :find_food, only: [:show, :update, :destroy, :edit]
+  before_action :find_restaurant, only: [:new, :edit]
 
   def index
     @foods = Food.all
@@ -17,12 +18,23 @@ class FoodsController < ApplicationController
   end
 
   def create
+    @food = Food.create!(food_params)
+    @food.save
+    redirect_to restaurants_path
   end
 
   private
   
   def find_food
     @food = Food.find(params[:id])
+  end
+
+  def find_restaurant
+    @restaurant = Restaurant.order(:name)
+  end
+
+  def food_params
+    return params.require(:food).permit(:name, :description, :price)
   end
 
 end
