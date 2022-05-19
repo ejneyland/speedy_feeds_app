@@ -19,8 +19,18 @@ class FoodsController < ApplicationController
 
   def create
     @food = Food.create!(food_params)
-    @food.save
+    redirect_to foods_path
+  end
+
+  def update
+    @food.update!(food_params)
     redirect_to @food
+  end
+
+  def destroy
+    @food.image.purge
+    @food.destroy
+    redirect_to foods_path
   end
 
   private
@@ -34,7 +44,7 @@ class FoodsController < ApplicationController
   end
 
   def food_params
-    return params.require(:food).permit(:name, :description, :price)
+    return params.require(:food).permit(:name, :description, :price, :restaurant_id, :image)
   end
 
 end
