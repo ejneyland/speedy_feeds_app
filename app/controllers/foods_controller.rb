@@ -1,7 +1,7 @@
 class FoodsController < ApplicationController
-  skip_before_action :verify_authenticity_token
+  # skip_before_action :verify_authenticity_token
   before_action :find_food, only: [:show, :update, :destroy, :edit]
-  before_action :find_restaurant, only: [:new, :edit]
+  before_action :find_restaurant, only: [:new, :edit, :create, :update]
 
   def index
     @foods = Food.all
@@ -20,7 +20,7 @@ class FoodsController < ApplicationController
   def create
     @food = Food.create!(food_params)
     @food.save
-    redirect_to restaurants_path
+    redirect_to @food
   end
 
   private
@@ -30,7 +30,7 @@ class FoodsController < ApplicationController
   end
 
   def find_restaurant
-    @restaurant = Restaurant.order(:name)
+    @restaurants = Restaurant.order(:get_name)
   end
 
   def food_params

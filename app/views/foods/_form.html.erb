@@ -1,12 +1,18 @@
 <%= form_with(model: @food, data: {turbo: false}) do |f| %>
   <fieldset class="mb-2">
-    <%= f.label :restaurant_id %>
-    <%= f.collection_select :restaurant_id, @restaurants, :id, :name %>
-    <%= f.number_field :restaurant_id %> 
-  </fieldset>
-  <fieldset class="mb-2">
     <%= f.label :name %>
     <%= f.text_field :name %>
+  </fieldset>
+  <fieldset class="mb-2">
+    <%= f.label :restaurant_id %>
+    <%
+        # collection_select takes 4 params:
+        #   1. The attribute name in this model (book) to store the selected id in
+        #   2. The collection from which to build the options
+        #   3. The attribute in the collection items to use as the value of the option
+        #   4. The attribute in the collection items to use as the caption of the option
+    %>
+    <%= f.collection_select :restaurant_id, @restaurants, :id, :get_name %>
   </fieldset>
   <fieldset class="mb-2">
     <%= f.label :description %>
