@@ -1,5 +1,6 @@
 class RestaurantsController < ApplicationController
-  skip_before_action :verify_authenticity_token
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :check_auth
   before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
   before_action :find_food, only: [:show, :edit, :update, :destroy]
   
@@ -31,6 +32,8 @@ class RestaurantsController < ApplicationController
   end
 
   def update
+    @restaurant.update!(rest_params)
+    redirect_to @restaurant
   end
 
   def destroy
@@ -39,6 +42,10 @@ class RestaurantsController < ApplicationController
   end
   
   private
+
+  def check_auth
+    authorize Restaurant
+  end
   
   def find_restaurant
     @restaurant = Restaurant.find(params[:id])

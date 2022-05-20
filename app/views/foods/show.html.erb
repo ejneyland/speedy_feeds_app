@@ -4,10 +4,10 @@
 <%= cl_image_tag(@food.image.key, crop: :scale, width: 150, cloud_name: ENV['CLOUDINARY_CLOUD_NAME']) if @food.image.attached? %>
 <div class="field is-grouped">
   <div class="mr-2">
-    <%= user_signed_in? ? link_to('Edit', edit_foods_path(@food), class: "button is-warning") : '' %>
+    <%= user_signed_in? && policy(Food).new? ? link_to('Edit', edit_foods_path(@food), class: "button is-warning") : '' %>
   </div>
   <div class="mr-2">
-    <%= user_signed_in? ? button_to('Delete', @food, class: "button is-danger", method: :delete, form: { data: { turbo_confirm: "Are you sure you want to delete '#{@food.name}' as a food item?" } }) : '' %>
+    <%= user_signed_in? && policy(Food).new? ? button_to('Delete', @food, class: "button is-danger", method: :delete, form: { data: { turbo_confirm: "Are you sure you want to delete '#{@food.name}' as a food item?" } }) : '' %>
   </div>
 </div>
 
