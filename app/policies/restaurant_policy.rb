@@ -40,6 +40,10 @@ class RestaurantPolicy
     create?
   end
 
+  def user_roles?
+    return @user && @user.has_role?(:customer)
+  end
+
   class Scope
     def initialize(user, scope)
       @user = user

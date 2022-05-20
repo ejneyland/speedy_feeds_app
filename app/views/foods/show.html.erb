@@ -1,7 +1,11 @@
 <h1 class="title is-2"><%= @food.name %></h1>
 <h1 class="subtitle is-3">by <%= @food.restaurant.name %></h1>
 <p><%= @food.description %></p>
-<%= cl_image_tag(@food.image.key, crop: :scale, width: 150, cloud_name: ENV['CLOUDINARY_CLOUD_NAME']) if @food.image.attached? %>
+
+<div class="my-3">
+  <%= cl_image_tag(@food.image.key, crop: :scale, width: 250, cloud_name: ENV['CLOUDINARY_CLOUD_NAME']) if @food.image.attached? %>
+</div>
+
 <div class="field is-grouped">
   <div class="mr-2">
     <%= user_signed_in? && policy(Food).new? ? link_to('Edit', edit_foods_path(@food), class: "button is-warning") : '' %>

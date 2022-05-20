@@ -1,3 +1,14 @@
 <h1 class="pb-3 title is-1 is-italic">Speedy Feeds</h1>
 
 <h3 class="subtitle is-4">Welcome to Speedy Feeds! The food delivery service built by locals, for locals.</h3>
+
+<% if current_user.has_any_role?(:vendor, :admin) %>
+    <%= "" %>
+<% else %>
+    <p>Let's get started! You are currently registered as a customer. If you are looking to register your Restaurant as a Speedy Feeds vendor, click the button below:</p>
+    <nav class="breadcrumb has-bullet-separator my-2" aria-label="breadcrumbs">
+        <ul>
+            <li><%= button_to 'Register Restaurant', user_role_path, class: 'button is-success is-large px-2', method: :post if policy(Restaurant).user_roles? %></li>
+        </ul>
+    </nav>
+ <% end %>

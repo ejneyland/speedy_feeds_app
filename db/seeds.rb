@@ -1,5 +1,11 @@
 Restaurant.destroy_all
 
+admin = Role.create(name: "vendor")
+vendor = Role.create(name: "vendor")
+customer = Role.create(name: "vendor")
+
+admin.users.create(email: "admin@gmail.com", password: "password")
+
 chik = Restaurant.create(name: "Chikara Sushi Train", cuisine: "Japanese")
 sams = Restaurant.create(name: "Sam's Health Foods", cuisine: "Vegan")
 quin = Restaurant.create(name: "The Quinoa Queens", cuisine: "Health")

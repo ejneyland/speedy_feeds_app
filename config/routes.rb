@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'user_roles/create'
   devise_scope :user do
     # Redirests signing out users back to sign-in
     get "users", to: "devise/sessions#new"
@@ -21,6 +22,8 @@ Rails.application.routes.draw do
   post 'foods', to: 'foods#create'
   patch 'foods/:id', to: 'foods#update'
   delete 'foods/:id', to: 'foods#destroy'
+
+  post 'home', to: 'user_roles#create', as: 'user_role'
 
   root "restaurants#home"
 end

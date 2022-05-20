@@ -85,3 +85,4 @@ gem "ffi", "~> 1.15"
 gem "rolify", "~> 6.0"
 
 gem "pundit", "~> 2.2"
+
