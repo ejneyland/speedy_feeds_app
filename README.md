@@ -13,9 +13,7 @@ Since the COVID-19 pandemic began, restaurants have struggled financially due to
 - Customers/restaurants are capped at a 10km delivery radius within metropolitan Melbourne, to keep it local and to minimise the carbon footprint of delivery
 - 'Speedy Feeds' takes a commission capped at a $2 service fee per order, so that restaurants and delivery drivers receive a much larger proportion of profit than with other delivery services - to aid local economic and business recovery post-pandemic lockdowns
 
-R9. A link (URL) to your deployed app (i.e. website)
-
-Heroku:  
+R9. Heroku-deployed link:  https://speedy-feeds.herokuapp.com
 
 R10. GitHub repo:   https://github.com/ejneyland/speedy_feeds_app
 
@@ -79,14 +77,18 @@ R13. Wireframes
 
 R14. LucidChart: ERD
 
+Initial Entity Relationship Diagram
+
 ![initial ERD](img/erd.png)
+
+Final ERD showing which entities weren't implemented in the final product.
 
 ![final ERD](img/erd_final.png)
 
 R15. Explain the different high-level components (abstractions) in your app
 // Models & Entities
-Foods
-Restaurants
+Foods: an entity of product/item, with params relating to its name, description, price and image. Food is an object of a menu (belonging to a restaurant) and an order (belonging to a customer and restaurant)
+Restaurants: an entity of 
 Users
 Roles
 
@@ -96,10 +98,27 @@ R16. Detail any third party services that your app will use
 
 R17. Describe your projects models in terms of the relationships (active record associations) they have with each other
 
-R18. Discuss the database relations to be implemented in your application
+Food: belongs_to :restaurant
+Food stores restaurant_id in its data table
 
+Restaurant: has_many :foods
+
+Role: has_and_belongs_to_many :users
+User_id and role_id stored in a join table
+
+R18. Discuss the database relations to be implemented in your application
 R19. Provide your database schema design
-// Describe/explain your ERD
+(R18 and R19 combined)
+
+Foods => restaurant_id
+Foods are assigned a restaurant ID.
+Food items are belonging to a restaurant
+Restaurant has many food items
+
+Roles => user_id
+Roles are assigned to user's through a user ID
+Roles are belonging to users
+Users has one or many roles
 
 R20. Describe the way tasks are allocated and tracked in your project
 
