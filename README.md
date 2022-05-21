@@ -86,13 +86,15 @@ Final ERD showing which entities weren't implemented in the final product.
 ![final ERD](img/erd_final.png)
 
 R15. Explain the different high-level components (abstractions) in your app
+
 // Models & Entities
 Foods: an entity of product/item, with params relating to its name, description, price and image. Food is an object of a menu (belonging to a restaurant) and an order (belonging to a customer and restaurant)
-Restaurants: an entity of 
-Users
-Roles
+Restaurants: an entity of place/shop, which food items belong to. params for restaurants include name and cuisine.  
+Users: users who sign up to the app, including customers, restaurant owners, and app admins. params for users include a login email, password and encypted password
+Roles: the permissions and authorizations assigned to a user, limiting the functions and access to views they have available to them
 
 R16. Detail any third party services that your app will use
+
 - Cloudinary - active storage, image upload cloud service
 - Heroku - deployment platform 
 
