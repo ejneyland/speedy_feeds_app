@@ -19,14 +19,24 @@ class FoodsController < ApplicationController
     @food = Food.new
   end
 
-  def create
-    @food = Food.create!(food_params)
-    redirect_to foods_path
+  def create    
+    @food = Food.create(food_params)
+    if @food.valid?
+      redirect_to @food
+    else
+      flash.now[:alert] = @food.errors.full_messages.join('<br>').html_safe
+      render 'new'
+    end
   end
 
   def update
-    @food.update!(food_params)
-    redirect_to @food
+    begin
+      @food.update!(food_params)
+      redirect_to @food
+    rescue
+      flash.now[:alert] = @food.errors.full_messages.join('<br>').html_safe
+      render 'edit'
+    end
   end
 
   def destroy

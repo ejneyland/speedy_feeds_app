@@ -24,16 +24,25 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(rest_params)
-    @restaurant.save
-    redirect_to restaurants_path
+    if @restaurant.valid?
+      redirect_to @restaurant
+    else
+      flash.now[:alert] = @restaurant.errors.full_messages.join('<br>').html_safe
+      render 'new'
+    end
   end
 
   def edit
   end
 
   def update
-    @restaurant.update!(rest_params)
-    redirect_to @restaurant
+    begin
+      @restaurant.update!(rest_params)
+      redirect_to @restaurant
+    rescue
+      flash.now[:alert] = @restaurant.errors.full_messages.join('<br>').html_safe
+      render 'edit'
+    end
   end
 
   def destroy

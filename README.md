@@ -46,8 +46,17 @@ R11. Description of your marketplace app (website), including:
 R12. User Stories
 
 Customer:
+- Customer is able to sign up to the platform to create an account using a personal email and password
+- Customer is able to browse available restaurants in the area
+- Customer is able to view a menu for each restaurant
+- Customer is able to view and browse meals on the menu, displaying a title, description and price
+- Customer is able to view an image of each menu item
 
 Restaurant (vendor): 
+- Vendor is able to sign up to the platform and register their restaurant with the app
+- Vendor is able to register their restaurant's details: name and cuisine
+- Vendor is able to add menu items to their shop, specifying a title, description and price
+- Vendor is able to upload an image for each menu item
 
 R13. Wireframes
 
